@@ -6,6 +6,23 @@
     
     <title>MIX BOX - সেরা অনলাইন শপিং অভিজ্ঞতা</title>
     
+    <meta name="description" content="MIX BOX - বাংলাদেশের নির্ভরযোগ্য অনলাইন শপ। সাশ্রয়ী মূল্যে ইলেকট্রনিক্স, গ্যাজেট এবং নিত্যপ্রয়োজনীয় পণ্য কিনুন। দ্রুত ডেলিভারি ও সেরা মান।">
+    <meta name="keywords" content="MIX BOX, মিক্স বক্স, অনলাইন শপিং, ই-কমার্স, কম দামে পণ্য, gadget shop bd, online market bangladesh">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "OnlineStore",
+      "name": "MIX BOX",
+      "url": "https://mdsujoncocbd3-cloud.github.io/Myshop/",
+      "description": "সেরা অনলাইন শপিং অভিজ্ঞতা এবং সাশ্রয়ী মূল্যে পণ্য কিনুন MIX BOX থেকে।",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BD"
+      }
+    }
+    </script>
+
     <link rel="manifest" href="manifest.json">
 
     <meta name="mobile-web-app-capable" content="yes">
@@ -30,9 +47,34 @@
             height: 100%; 
             border: none; 
         }
+        /* SEO Content লুকালেও গুগল পড়তে পারবে */
+        .hidden-seo {
+            display: none;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
+
+    <div class="hidden-seo">
+        <h1>MIX BOX - অনলাইন শপিং মল</h1>
+        <p>আমাদের কাছে পাবেন সব ধরণের আধুনিক গ্যাজেট, ইলেকট্রনিক্স এবং ট্রেন্ডি পণ্য।</p>
+        <ul>
+            <li>সেরা মানের পণ্য</li>
+            <li>সাশ্রয়ী মূল্য</li>
+            <li>দ্রুত হোম ডেলিভারি</li>
+        </ul>
+    </div>
+
     <iframe src="https://script.google.com/macros/s/AKfycbxsAfJ21FBCN_fqvXOP3MMfudictV-BP1sES9SiLDlyAL_wxs8B9L-7CBtnxdqIJiQqig/exec"></iframe>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch(err => console.log('Service Worker failed:', err));
+        });
+      }
+    </script>
+
 </body>
 </html>
