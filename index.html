@@ -30,7 +30,7 @@
             width: 100%;
             overflow: hidden; 
             background-color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         /* আইফ্রেম স্টাইল */
@@ -42,7 +42,7 @@
             background-color: #ffffff;
         }
 
-        /* লোডিং স্পিনার স্টাইল */
+        /* কাস্টম ব্র্যান্ডিং লোডার কন্টেইনার */
         #loader-container {
             position: fixed;
             top: 0;
@@ -55,27 +55,56 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
         }
 
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        /* লোগো অ্যানিমেশন (হালকা পালস ইফেক্ট) */
+        .brand-logo {
+            width: 120px; /* লোগোর সাইজ প্রয়োজন অনুযায়ী পরিবর্তন করতে পারেন */
+            height: auto;
+            margin-bottom: 15px;
+            animation: pulse-logo 2s infinite ease-in-out;
         }
 
-        .loader-text {
-            margin-top: 15px;
-            color: #555;
-            font-size: 16px;
+        @keyframes pulse-logo {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* সাইট নেম শাইনিং অ্যানিমেশন */
+        .brand-name {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 0;
+            /* কালার গ্রেডিয়েন্ট - আপনি চাইলে আপনার ব্র্যান্ডের কালার দিতে পারেন */
+            background: linear-gradient(90deg, #111111, #ff0055, #111111);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine-text 2s linear infinite;
+        }
+
+        @keyframes shine-text {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* নিচে ছোট লোডিং টেক্সট */
+        .loading-subtext {
+            font-size: 14px;
+            color: #666666;
+            margin-top: 10px;
+            letter-spacing: 3px;
+            animation: fade-text 1.5s infinite ease-in-out;
+        }
+
+        @keyframes fade-text {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
         }
 
         /* SEO Hidden Text */
@@ -94,8 +123,9 @@
 <body>
 
     <div id="loader-container">
-        <div class="spinner"></div>
-        <p class="loader-text">MIX BOX লোড হচ্ছে, দয়া করে অপেক্ষা করুন...</p>
+        <img src="https://i.postimg.cc/8zKG1ndp/20260113-210931.png?v=2" alt="MIX BOX Logo" class="brand-logo">
+        <h1 class="brand-name">MIX BOX</h1>
+        <div class="loading-subtext">LOADING...</div>
     </div>
 
     <div class="seo-hidden-text">
@@ -119,13 +149,11 @@
     <script>
         function hideLoader() {
             const loader = document.getElementById('loader-container');
-            // একটু স্মুথ ট্রানজিশনের জন্য ০.৫ সেকেন্ড পর হাইড হবে
+            // আইফ্রেম লোড হওয়ার পর লোডারটি স্মুথভাবে মুছে যাবে
             setTimeout(() => {
                 loader.style.opacity = '0';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 500);
-            }, 500);
+                loader.style.visibility = 'hidden';
+            }, 600); // 0.6 সেকেন্ড ট্রানজিশন সময়
         }
     </script>
 
