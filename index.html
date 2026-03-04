@@ -8,6 +8,10 @@
     <meta name="description" content="MIX BOX - বাংলাদেশের অন্যতম সেরা অনলাইন শপিং মল। সাশ্রয়ী মূল্যে সেরা মানের পণ্য, দ্রুত ডেলিভারি এবং সহজ কেনাকাটার অভিজ্ঞতা।">
     <meta name="keywords" content="MIX BOX, মিক্স বক্স, অনলাইন শপিং, ই-কমার্স, বাংলাদেশ, শপিং মল, সেরা পণ্য, কম দাম">
     
+    <link rel="preconnect" href="https://script.google.com">
+    <link rel="preconnect" href="https://script.googleusercontent.com">
+    <link rel="dns-prefetch" href="https://script.google.com">
+
     <link rel="manifest" href="manifest.json">
 
     <meta name="mobile-web-app-capable" content="yes">
@@ -19,7 +23,6 @@
     <link rel="apple-touch-icon" href="https://i.postimg.cc/8zKG1ndp/20260113-210931.png?v=2">
 
     <style>
-        /* পুরো স্ক্রিন জুড়ে ওয়েবসাইটটি দেখানোর স্টাইল */
         body, html { 
             margin: 0; 
             padding: 0; 
@@ -27,15 +30,55 @@
             width: 100%;
             overflow: hidden; 
             background-color: #ffffff;
+            font-family: Arial, sans-serif;
         }
+        
+        /* আইফ্রেম স্টাইল */
         iframe { 
             width: 100%; 
             height: 100%; 
             border: none; 
             display: block;
+            background-color: #ffffff;
         }
 
-        /* Hidden SEO CSS: এটি গুগলবট পড়তে পারবে কিন্তু মানুষ স্ক্রিনে দেখতে পাবে না */
+        /* লোডিং স্পিনার স্টাইল */
+        #loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-text {
+            margin-top: 15px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* SEO Hidden Text */
         .seo-hidden-text {
             position: absolute;
             width: 1px;
@@ -50,22 +93,41 @@
 </head>
 <body>
 
+    <div id="loader-container">
+        <div class="spinner"></div>
+        <p class="loader-text">MIX BOX লোড হচ্ছে, দয়া করে অপেক্ষা করুন...</p>
+    </div>
+
     <div class="seo-hidden-text">
         <h1>MIX BOX (মিক্স বক্স) - বিশ্বস্ত ই-কমার্স ওয়েবসাইট</h1>
-        <p>MIX BOX-এ আপনাকে স্বাগতম! এটি বাংলাদেশের অন্যতম জনপ্রিয় একটি অনলাইন শপ। আমরা আমাদের গ্রাহকদের দিচ্ছি সাশ্রয়ী মূল্যে সেরা মানের পণ্য।</p>
-        <h2>আমাদের ক্যাটাগরি এবং পণ্যসমূহ</h2>
-        <p>আমাদের কাছে পাবেন চমৎকার সব ফ্যাশন আইটেম, ইলেকট্রনিক্স গ্যাজেট, স্মার্টফোন এক্সেসরিজ, হোম ডেকোর এবং নিত্যপ্রয়োজনীয় জিনিসপত্র। প্রতিটি পণ্য আমরা যাচাই করে আপনাদের কাছে পৌঁছে দিই।</p>
-        <h2>কেন MIX BOX থেকে কেনাকাটা করবেন?</h2>
+        <p>MIX BOX-এ আপনাকে স্বাগত! এটি বাংলাদেশের অন্যতম জনপ্রিয় একটি অনলাইন শপ।</p>
+        <h2>আমাদের ক্যাটাগরি এবং কেনাকাটা</h2>
         <ul>
             <li>সেরা মানের পণ্যের নিশ্চয়তা।</li>
-            <li>সারা বাংলাদেশে দ্রুততম হোম ডেলিভারি সার্ভিস।</li>
-            <li>সহজ রিটার্ন এবং রিফান্ড পলিসি।</li>
-            <li>নিরাপদ পেমেন্ট গেটওয়ে এবং ক্যাশ অন ডেলিভারি (COD) সুবিধা।</li>
-            <li>২৪/৭ কাস্টমার সাপোর্ট।</li>
+            <li>দ্রুত ডেলিভারি এবং নিরাপদ পেমেন্ট।</li>
         </ul>
-        <p>আজই ভিজিট করুন আমাদের ওয়েবসাইট এবং উপভোগ করুন সেরা শপিং অভিজ্ঞতা!</p>
     </div>
-    <iframe src="https://script.google.com/macros/s/AKfycbw2bUkm9jVOiP6Vz5ijRgLVgRQInZUh_o0ag4guwSM44rwR4961RQJek6dS-wnQOwvW/exec"></iframe>
+
+    <iframe 
+        id="shopFrame"
+        src="https://script.google.com/macros/s/AKfycbw2bUkm9jVOiP6Vz5ijRgLVgRQInZUh_o0ag4guwSM44rwR4961RQJek6dS-wnQOwvW/exec" 
+        loading="eager"
+        fetchpriority="high"
+        onload="hideLoader()">
+    </iframe>
+
+    <script>
+        function hideLoader() {
+            const loader = document.getElementById('loader-container');
+            // একটু স্মুথ ট্রানজিশনের জন্য ০.৫ সেকেন্ড পর হাইড হবে
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 500);
+        }
+    </script>
 
 </body>
 </html>
