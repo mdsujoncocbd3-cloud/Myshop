@@ -60,7 +60,7 @@
 
         /* লোগো অ্যানিমেশন (হালকা পালস ইফেক্ট) */
         .brand-logo {
-            width: 120px; /* লোগোর সাইজ প্রয়োজন অনুযায়ী পরিবর্তন করতে পারেন */
+            width: 120px; 
             height: auto;
             margin-bottom: 15px;
             animation: pulse-logo 2s infinite ease-in-out;
@@ -78,7 +78,6 @@
             font-weight: 900;
             letter-spacing: 2px;
             margin: 0;
-            /* কালার গ্রেডিয়েন্ট - আপনি চাইলে আপনার ব্র্যান্ডের কালার দিতে পারেন */
             background: linear-gradient(90deg, #111111, #ff0055, #111111);
             background-size: 200% auto;
             color: transparent;
@@ -140,7 +139,7 @@
 
     <iframe 
         id="shopFrame"
-        src="https://script.google.com/macros/s/AKfycbxO-CdpXO2IePC_nzP90DAQWyktz0WPuYmgZ7TwmWbVwfxIP6yZEZpSuRAh5kYsHm2T/exec" 
+        src="https://script.google.com/macros/s/AKfycbxO-CdpXO2IePC_nzP90DAQWyktz0W এশিয়ারWPuYmgZ7TwmWbVwfxIP6yZEZpSuRAh5kYsHm2T/exec" 
         loading="eager"
         fetchpriority="high"
         onload="hideLoader()">
@@ -149,11 +148,19 @@
     <script>
         function hideLoader() {
             const loader = document.getElementById('loader-container');
-            // আইফ্রেম লোড হওয়ার পর লোডারটি স্মুথভাবে মুছে যাবে
             setTimeout(() => {
                 loader.style.opacity = '0';
                 loader.style.visibility = 'hidden';
-            }, 600); // 0.6 সেকেন্ড ট্রানজিশন সময়
+            }, 600); 
+        }
+
+        // Service Worker Registration for PWA & Offline Support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker Registered Successfully!', reg))
+                .catch(err => console.log('Service Worker Registration Failed!', err));
+            });
         }
     </script>
 
