@@ -6,19 +6,22 @@ const urlsToCache = [
   'https://i.postimg.cc/8zKG1ndp/20260113-210931.png?v=2'
 ];
 
-// সার্ভিস ওয়ার্কার ইনস্টল করা এবং ফাইল ক্যাশ করা
+// ফাইলগুলো ক্যাশ (Cache) করা হচ্ছে
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+      .then(cache => {
+        return cache.addAll(urlsToCache);
+      })
   );
 });
 
-// অফলাইন সাপোর্ট: যখন নেট থাকবে না তখন ক্যাশ থেকে ফাইল দেখাবে
+// অফলাইনে ক্যাশ থেকে ডেটা লোড করা হচ্ছে
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
+        // যদি ক্যাশে ডেটা থাকে তবে সেটি দেখাবে, না থাকলে নেটওয়ার্ক থেকে আনবে
         return response || fetch(event.request);
       })
   );
